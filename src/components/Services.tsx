@@ -1,6 +1,7 @@
 import { getServiceMedia } from '../data/media'
 import { serviceBlocks } from '../data/services'
-import { scrollToContact } from '../lib/contact'
+import { getSmsHref } from '../data/site'
+import { buildSmsAriaLabel } from '../lib/contact'
 import { ProjectImage } from './ProjectImage'
 
 export function Services() {
@@ -65,14 +66,14 @@ export function Services() {
                   <p className="mt-3 text-sm leading-relaxed text-charcoal/75 sm:text-[0.95rem]">
                     {service.description}
                   </p>
-                  <button
-                    type="button"
-                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-ink transition hover:text-gold"
-                    onClick={() => scrollToContact(service.formValue)}
+                  <a
+                    href={getSmsHref({ service: service.formValue })}
+                    className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink transition hover:text-gold"
+                    aria-label={buildSmsAriaLabel(service.formValue)}
                   >
                     Discuss Your Project
-                    <i className="bi bi-arrow-right" aria-hidden="true" />
-                  </button>
+                    <i className="bi bi-chat-dots" aria-hidden="true" />
+                  </a>
                 </div>
               </article>
             )

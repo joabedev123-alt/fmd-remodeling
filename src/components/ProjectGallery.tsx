@@ -5,6 +5,8 @@ import {
   getGalleryMedia,
   type MediaCategory,
 } from '../data/media'
+import { getSmsHref } from '../data/site'
+import { buildSmsAriaLabel } from '../lib/contact'
 import { Lightbox } from './Lightbox'
 import { ProjectImage } from './ProjectImage'
 
@@ -148,9 +150,13 @@ export function ProjectGallery() {
           <p className="font-display text-xl text-white sm:text-2xl">
             Have a similar project in mind?
           </p>
-          <a href="#contact" className="btn-primary">
+          <a
+            href={getSmsHref()}
+            className="btn-primary"
+            aria-label={buildSmsAriaLabel()}
+          >
             Let’s Talk About It
-            <i className="bi bi-arrow-right" aria-hidden="true" />
+            <i className="bi bi-chat-dots" aria-hidden="true" />
           </a>
         </div>
       </div>

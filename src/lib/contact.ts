@@ -1,27 +1,23 @@
-import { siteConfig } from '../data/site'
+import { getSmsHref, siteConfig } from '../data/site'
 
+export function openSmsEstimate(service?: string): void {
+  window.location.href = getSmsHref({ service })
+}
+
+/** @deprecated Prefer openSmsEstimate for CTAs */
 export function scrollToContact(service?: string): void {
-  if (service) {
-    const params = new URLSearchParams(window.location.search)
-    params.set('service', service)
-    const next = `${window.location.pathname}?${params.toString()}#contact`
-    window.history.replaceState({}, '', next)
-    window.dispatchEvent(
-      new CustomEvent('fmd:preselect-service', { detail: { service } }),
-    )
-  }
-
-  const target = document.getElementById('contact')
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+  openSmsEstimate(service)
 }
 
 export function getEstimateHref(service?: string): string {
-  if (!service) return '#contact'
-  return `#contact?service=${encodeURIComponent(service)}`
+  return getSmsHref({ service })
 }
 
 export function buildCallAriaLabel(): string {
   return `Call ${siteConfig.companyName} at ${siteConfig.phoneDisplay}`
+}
+
+export function buildSmsAriaLabel(service?: string): string {
+  const detail = service ? ` about ${service}` : ''
+  return `Text ${siteConfig.companyName} at ${siteConfig.phoneDisplay}${detail}`
 }

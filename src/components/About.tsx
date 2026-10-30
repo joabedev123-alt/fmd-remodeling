@@ -1,5 +1,7 @@
 import { getAboutMedia } from '../data/media'
 import { aboutHighlights } from '../data/navigation'
+import { getSmsHref } from '../data/site'
+import { buildSmsAriaLabel } from '../lib/contact'
 import { ProjectImage } from './ProjectImage'
 
 export function About() {
@@ -78,9 +80,13 @@ export function About() {
             ))}
           </ul>
 
-          <a href="#contact" className="btn-dark mt-8">
+          <a
+            href={getSmsHref()}
+            className="btn-dark mt-8"
+            aria-label={buildSmsAriaLabel()}
+          >
             Tell Us About Your Project
-            <i className="bi bi-arrow-right" aria-hidden="true" />
+            <i className="bi bi-chat-dots" aria-hidden="true" />
           </a>
         </div>
       </div>

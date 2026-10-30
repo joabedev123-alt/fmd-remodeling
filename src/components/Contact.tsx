@@ -1,11 +1,12 @@
 import { useEffect, useId, useState, type FormEvent, type ReactNode } from 'react'
 import {
+  getSmsHref,
   getWhatsAppUrl,
   serviceOptions,
   siteConfig,
   type ServiceOption,
 } from '../data/site'
-import { buildCallAriaLabel } from '../lib/contact'
+import { buildCallAriaLabel, buildSmsAriaLabel } from '../lib/contact'
 
 type FormState = {
   fullName: string
@@ -201,7 +202,15 @@ export function Contact() {
           </dl>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href={siteConfig.phoneTel} className="btn-primary">
+            <a
+              href={getSmsHref()}
+              className="btn-primary"
+              aria-label={buildSmsAriaLabel()}
+            >
+              Text Us
+              <i className="bi bi-chat-dots" aria-hidden="true" />
+            </a>
+            <a href={siteConfig.phoneTel} className="btn-secondary">
               Call Now
               <i className="bi bi-telephone" aria-hidden="true" />
             </a>
@@ -376,12 +385,11 @@ export function Contact() {
             <div>
               <div className="gold-rule" />
               <h3 className="mt-5 font-display text-2xl text-white">
-                Request an Estimate by Phone
+                Request an Estimate by Text
               </h3>
               <p className="mt-3 text-mist">
-                The online estimate form will be available once a secure delivery
-                endpoint is configured. For now, call FMD Remodeling Inc. to
-                discuss your project.
+                Send us a message to discuss your remodeling project. A short
+                text with your service type and city helps us get started.
               </p>
               <ul className="mt-6 space-y-3 text-sm text-cream/90">
                 <li className="flex items-start gap-3">
@@ -394,16 +402,16 @@ export function Contact() {
                 </li>
                 <li className="flex items-start gap-3">
                   <i className="bi bi-check2-circle mt-0.5 text-gold" aria-hidden="true" />
-                  Photos can help when shared through an available channel.
+                  Photos can also help when shared through an available channel.
                 </li>
               </ul>
               <a
-                href={siteConfig.phoneTel}
+                href={getSmsHref()}
                 className="btn-primary mt-8"
-                aria-label={buildCallAriaLabel()}
+                aria-label={buildSmsAriaLabel()}
               >
-                Call {siteConfig.phoneDisplay}
-                <i className="bi bi-telephone" aria-hidden="true" />
+                Text {siteConfig.phoneDisplay}
+                <i className="bi bi-chat-dots" aria-hidden="true" />
               </a>
             </div>
           )}

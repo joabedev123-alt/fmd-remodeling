@@ -1,4 +1,5 @@
-import { siteConfig } from '../data/site'
+import { getSmsHref, siteConfig } from '../data/site'
+import { buildSmsAriaLabel } from '../lib/contact'
 
 export function ServiceAreas() {
   return (
@@ -44,7 +45,11 @@ export function ServiceAreas() {
           <p className="text-sm text-charcoal/80">
             Plus surrounding areas across {siteConfig.regionLabel}.
           </p>
-          <a href="#contact" className="btn-outline-dark ml-auto">
+          <a
+            href={getSmsHref()}
+            className="btn-outline-dark ml-auto"
+            aria-label={buildSmsAriaLabel()}
+          >
             Check Your Location
           </a>
         </div>

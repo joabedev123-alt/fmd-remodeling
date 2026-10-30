@@ -32,3 +32,6 @@ public/[0-9][0-9].jpeg
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
+.env*

@@ -3,6 +3,13 @@ export const siteConfig = {
   tagline: 'Residential & Commercial Remodeling',
   phoneDisplay: '(857) 326-8383',
   phoneTel: 'tel:+18573268383',
+  phoneE164: '+18573268383',
+  /**
+   * Default SMS body for estimate CTAs.
+   * Use [Service] and [City] placeholders when available.
+   */
+  smsMessageTemplate:
+    "Hi FMD Remodeling! I'd like to request an estimate for [Service] in [City].",
   /**
    * Optional WhatsApp number in international format digits only.
    * Example: '15551234567'
@@ -79,6 +86,18 @@ export const serviceOptions: ServiceOption[] = [
   'Carpentry',
   'Other / Not Sure',
 ]
+
+export function getSmsHref(options?: {
+  service?: string
+  city?: string
+}): string {
+  const service = options?.service?.trim() || 'a remodeling project'
+  const city = options?.city?.trim() || 'Massachusetts'
+  const body = siteConfig.smsMessageTemplate
+    .replace('[Service]', service)
+    .replace('[City]', city)
+  return `sms:${siteConfig.phoneE164}?body=${encodeURIComponent(body)}`
+}
 
 export function getWhatsAppUrl(city = 'Massachusetts'): string | null {
   const number = siteConfig.whatsappNumber.trim()

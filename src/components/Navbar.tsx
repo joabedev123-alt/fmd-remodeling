@@ -2,7 +2,8 @@ import { useEffect, useId, useState } from 'react'
 import { navLinks } from '../data/navigation'
 import { siteConfig } from '../data/site'
 import { useActiveSection } from '../hooks/useActiveSection'
-import { buildCallAriaLabel } from '../lib/contact'
+import { getSmsHref } from '../data/site'
+import { buildCallAriaLabel, buildSmsAriaLabel } from '../lib/contact'
 import { BrandMark } from './BrandMark'
 import { TopBar } from './TopBar'
 
@@ -78,9 +79,13 @@ export function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <a href="#contact" className="btn-primary">
+            <a
+              href={getSmsHref()}
+              className="btn-primary"
+              aria-label={buildSmsAriaLabel()}
+            >
               Request an Estimate
-              <i className="bi bi-arrow-right" aria-hidden="true" />
+              <i className="bi bi-chat-dots" aria-hidden="true" />
             </a>
           </div>
 
@@ -128,8 +133,9 @@ export function Navbar() {
               {siteConfig.phoneDisplay}
             </a>
             <a
-              href="#contact"
+              href={getSmsHref()}
               className="btn-primary mt-2"
+              aria-label={buildSmsAriaLabel()}
               onClick={closeMenu}
             >
               Request an Estimate

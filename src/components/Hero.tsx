@@ -1,6 +1,6 @@
 import { getHeroMedia } from '../data/media'
-import { siteConfig } from '../data/site'
-import { buildCallAriaLabel } from '../lib/contact'
+import { getSmsHref, siteConfig } from '../data/site'
+import { buildCallAriaLabel, buildSmsAriaLabel } from '../lib/contact'
 import { ProjectImage } from './ProjectImage'
 
 const attributes = [
@@ -70,9 +70,13 @@ export function Hero() {
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
-            <a href="#contact" className="btn-primary">
+            <a
+              href={getSmsHref()}
+              className="btn-primary"
+              aria-label={buildSmsAriaLabel()}
+            >
               Request an Estimate
-              <i className="bi bi-arrow-up-right" aria-hidden="true" />
+              <i className="bi bi-chat-dots" aria-hidden="true" />
             </a>
             <a href="#our-work" className="btn-secondary">
               Explore Our Work

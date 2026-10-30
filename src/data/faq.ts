@@ -29,8 +29,8 @@ export const faqItems: FaqItem[] = [
     id: 'estimate',
     question: 'How can I request an estimate?',
     answer: siteConfig.form.enabled
-      ? `Call us at ${siteConfig.phoneDisplay} or use the contact form to share your project details.`
-      : `Call us at ${siteConfig.phoneDisplay} to share your project details and request an estimate.`,
+      ? `Text or call us at ${siteConfig.phoneDisplay}, or use the contact form to share your project details.`
+      : `Text us at ${siteConfig.phoneDisplay} to share your project details and request an estimate. You can also call the same number.`,
   },
   {
     id: 'share',
