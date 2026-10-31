@@ -41,14 +41,13 @@ export type MediaItem = {
 export const brandMedia = {
   logo: {
     id: 'logo-primary',
-    /** Official logo file not identified in the current media folders yet. */
-    src: '' as string,
+    src: '/logo.png',
     alt: 'FMD Remodeling Inc. logo',
-    width: 480,
-    height: 160,
+    width: 1254,
+    height: 1254,
   },
   favicon: {
-    src: '/favicon.svg',
+    src: '/favicon.png',
   },
 }
 

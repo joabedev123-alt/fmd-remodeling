@@ -40,14 +40,16 @@ export function ServiceAreas() {
           ))}
         </ul>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3 rounded-xl border border-dashed border-ink/15 bg-white/60 px-5 py-4">
-          <i className="bi bi-geo-alt text-gold" aria-hidden="true" />
-          <p className="text-sm text-charcoal/80">
-            Plus surrounding areas across {siteConfig.regionLabel}.
-          </p>
+        <div className="mt-8 flex flex-col gap-4 rounded-xl border border-dashed border-ink/15 bg-white/60 px-4 py-4 sm:flex-row sm:items-center sm:gap-3 sm:px-5">
+          <div className="flex items-start gap-3 sm:items-center">
+            <i className="bi bi-geo-alt mt-0.5 text-gold sm:mt-0" aria-hidden="true" />
+            <p className="text-sm text-charcoal/80">
+              Plus surrounding areas across {siteConfig.regionLabel}.
+            </p>
+          </div>
           <a
             href={getSmsHref()}
-            className="btn-outline-dark ml-auto"
+            className="btn-outline-dark sm:ml-auto"
             aria-label={buildSmsAriaLabel()}
           >
             Check Your Location

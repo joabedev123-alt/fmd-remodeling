@@ -158,7 +158,7 @@ export function Contact() {
       className="section-pad bg-ink text-cream"
       aria-labelledby="contact-heading"
     >
-      <div className="site-container grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
+      <div className="site-container grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
         <div>
           <p className="eyebrow">LET’S TALK ABOUT YOUR PROJECT</p>
           <h2 id="contact-heading" className="section-title text-white">
@@ -169,7 +169,7 @@ export function Contact() {
             your remodeling project in Massachusetts.
           </p>
 
-          <dl className="mt-8 space-y-5 rounded-xl border border-white/10 bg-graphite/70 p-6">
+          <dl className="mt-7 space-y-5 rounded-xl border border-white/10 bg-graphite/70 p-5 sm:mt-8 sm:p-6">
             <div>
               <dt className="text-xs uppercase tracking-[0.18em] text-gold">
                 Company
@@ -201,7 +201,7 @@ export function Contact() {
             </div>
           </dl>
 
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href={getSmsHref()}
               className="btn-primary"
@@ -228,7 +228,7 @@ export function Contact() {
           </div>
         </div>
 
-        <div className="relative rounded-xl border border-white/10 bg-graphite p-6 shadow-lift sm:p-8">
+        <div className="relative rounded-xl border border-white/10 bg-graphite p-5 shadow-lift sm:p-8">
           {formEnabled ? (
             <form
               onSubmit={onSubmit}

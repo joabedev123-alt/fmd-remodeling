@@ -23,7 +23,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-9 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
           {serviceBlocks.map((service) => {
             const photo = getServiceMedia(service.id)
             const showPhoto = Boolean(photo)
@@ -52,7 +52,7 @@ export function Services() {
                   </div>
                 ) : null}
 
-                <div className="p-6 sm:p-7">
+                <div className="p-5 sm:p-7">
                   {!showPhoto ? (
                     <span className="icon-badge" aria-hidden="true">
                       <i className={`bi ${service.icon}`} />

@@ -76,7 +76,7 @@ export function ProjectGallery() {
         ) : null}
 
         {filtered.length > 0 ? (
-          <div className="mt-8 grid auto-rows-[200px] gap-3 sm:mt-10 sm:auto-rows-[220px] sm:grid-cols-2 sm:gap-4 lg:auto-rows-[260px] lg:grid-cols-3">
+          <div className="mt-7 grid auto-rows-[176px] gap-2.5 sm:mt-10 sm:auto-rows-[220px] sm:grid-cols-2 sm:gap-4 lg:auto-rows-[260px] lg:grid-cols-3">
             {filtered.map((item, index) => {
               const span =
                 index % 7 === 0
@@ -102,13 +102,13 @@ export function ProjectGallery() {
                     style={{ objectPosition: item.objectPosition ?? 'center' }}
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-transparent opacity-90" />
-                  <div className="absolute inset-x-0 bottom-0 p-4">
+                  <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
                     {item.stage === 'in-progress' ? (
-                      <span className="mb-2 inline-flex rounded-full bg-gold/20 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wider text-gold-light">
+                      <span className="mb-1.5 inline-flex rounded-full bg-gold/20 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-gold-light sm:mb-2 sm:text-[0.7rem]">
                         In Progress
                       </span>
                     ) : null}
-                    <p className="font-display text-sm text-white sm:text-base">
+                    <p className="font-display text-[0.8rem] leading-snug text-white sm:text-base">
                       {item.caption}
                     </p>
                   </div>

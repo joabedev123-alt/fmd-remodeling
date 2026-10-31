@@ -45,17 +45,17 @@ export function Navbar() {
   const closeMenu = () => setOpen(false)
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50 pt-[env(safe-area-inset-top,0px)]">
       <TopBar />
       <div
         className={`border-b transition-colors duration-300 ${
           scrolled || open
             ? 'border-white/10 bg-ink'
-            : 'border-transparent bg-ink/70 backdrop-blur-md'
+            : 'border-transparent bg-ink/80 backdrop-blur-md'
         }`}
       >
-        <div className="site-container flex h-16 items-center justify-between gap-4 lg:h-[4.25rem]">
-          <a href="#home" className="relative z-10 shrink-0" onClick={closeMenu}>
+        <div className="site-container flex h-[4.5rem] items-center justify-between gap-3 lg:h-[4.25rem]">
+          <a href="#home" className="relative z-10 max-w-[70%] shrink-0" onClick={closeMenu}>
             <BrandMark compact />
           </a>
 
@@ -91,7 +91,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/15 text-cream lg:hidden"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-lg border border-white/15 text-cream active:bg-white/10 lg:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? 'Close menu' : 'Open menu'}
@@ -106,7 +106,7 @@ export function Navbar() {
           className={`border-t border-white/10 bg-ink lg:hidden ${open ? 'block' : 'hidden'}`}
         >
           <nav
-            className="site-container flex max-h-[min(70svh,28rem)] flex-col gap-1 overflow-y-auto py-4 pb-6"
+            className="site-container flex max-h-[min(78svh,34rem)] flex-col gap-1 overflow-y-auto overscroll-contain py-3 pb-[max(1.25rem,env(safe-area-inset-bottom))]"
             aria-label="Mobile"
           >
             {navLinks.map((link) => {
@@ -115,7 +115,7 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="rounded-lg px-3 py-3 text-base text-cream hover:bg-white/5 hover:text-gold"
+                  className="rounded-lg px-3 py-3.5 text-[1.05rem] text-cream active:bg-white/10 hover:bg-white/5 hover:text-gold"
                   data-active={activeId === id}
                   onClick={closeMenu}
                 >
@@ -125,7 +125,7 @@ export function Navbar() {
             })}
             <a
               href={siteConfig.phoneTel}
-              className="mt-2 inline-flex items-center gap-2 rounded-lg px-3 py-3 text-cream hover:text-gold"
+              className="mt-1 inline-flex min-h-12 items-center gap-2 rounded-lg px-3 py-3.5 text-cream active:bg-white/10 hover:text-gold"
               aria-label={buildCallAriaLabel()}
               onClick={closeMenu}
             >
@@ -139,6 +139,7 @@ export function Navbar() {
               onClick={closeMenu}
             >
               Request an Estimate
+              <i className="bi bi-chat-dots" aria-hidden="true" />
             </a>
           </nav>
         </div>

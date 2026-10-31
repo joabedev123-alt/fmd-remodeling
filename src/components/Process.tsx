@@ -15,11 +15,11 @@ export function Process() {
           </h2>
         </div>
 
-        <ol className="mt-12 grid gap-6 lg:grid-cols-4">
+        <ol className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6">
           {processSteps.map((step, index) => (
             <li
               key={step.number}
-              className="relative rounded-xl border border-white/10 bg-ink/40 p-6"
+              className="relative rounded-xl border border-white/10 bg-ink/40 p-5 sm:p-6"
             >
               <span className="font-display text-4xl font-semibold text-gold/90">
                 {step.number}

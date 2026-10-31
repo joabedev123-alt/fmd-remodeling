@@ -51,14 +51,14 @@ export function Hero() {
         )}
       </div>
 
-      <div className="site-container flex flex-col justify-end pb-10 pt-16 sm:min-h-[calc(100svh-6.5rem)] sm:justify-center sm:py-20 lg:min-h-[82vh] lg:py-24">
+      <div className="site-container flex min-h-[calc(100svh-9rem)] flex-col justify-end pb-8 pt-12 sm:min-h-[calc(100svh-6.5rem)] sm:justify-center sm:py-20 lg:min-h-[82vh] lg:py-24">
         <div className="max-w-2xl">
           <p className="eyebrow text-gold-light">
             FMD REMODELING INC. · MASSACHUSETTS
           </p>
           <h1
             id="hero-heading"
-            className="mt-3 font-display text-[2rem] font-semibold leading-[1.12] tracking-tight text-white sm:mt-4 sm:text-5xl lg:text-6xl"
+            className="mt-3 font-display text-[1.9rem] font-semibold leading-[1.12] tracking-tight text-white sm:mt-4 sm:text-5xl lg:text-6xl"
           >
             Thoughtful Remodeling. Quality in Every Detail.
           </h1>
@@ -69,7 +69,7 @@ export function Hero() {
             commitment to every project.
           </p>
 
-          <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
+          <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
             <a
               href={getSmsHref()}
               className="btn-primary"
@@ -85,7 +85,7 @@ export function Hero() {
 
           <a
             href={siteConfig.phoneTel}
-            className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm text-cream/90 transition hover:text-gold sm:mt-5"
+            className="mt-3 inline-flex min-h-12 items-center gap-2 text-sm text-cream/90 transition hover:text-gold sm:mt-5 sm:min-h-11"
             aria-label={buildCallAriaLabel()}
           >
             <i className="bi bi-telephone" aria-hidden="true" />
@@ -100,7 +100,7 @@ export function Hero() {
           ) : null}
         </div>
 
-        <ul className="mt-8 grid gap-2.5 border-t border-white/10 pt-6 sm:mt-12 sm:grid-cols-3 sm:gap-3 sm:pt-8">
+        <ul className="mt-7 grid gap-2 border-t border-white/10 pt-5 sm:mt-12 sm:grid-cols-3 sm:gap-3 sm:pt-8">
           {attributes.map((item) => (
             <li
               key={item.label}

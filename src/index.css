@@ -11,8 +11,8 @@
   --color-white: #ffffff;
   --color-charcoal: #252525;
   --color-mist: #c8c8c8;
-  --header-offset: 4.25rem;
-  --mobile-bar-height: 4.25rem;
+  --header-offset: 4.5rem;
+  --mobile-bar-height: 4.5rem;
   --font-display: 'Manrope', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.12);
@@ -29,7 +29,9 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: var(--header-offset);
+    scroll-padding-top: calc(var(--header-offset) + env(safe-area-inset-top, 0px));
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -52,6 +54,7 @@
     min-width: 320px;
     overflow-x: hidden;
     padding-bottom: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom, 0px));
+    -webkit-tap-highlight-color: transparent;
   }
 
   @media (min-width: 768px) {
@@ -75,9 +78,29 @@
     @apply transition-colors duration-200;
   }
 
+  button,
+  a,
+  [role='button'] {
+    touch-action: manipulation;
+  }
+
   img {
     max-width: 100%;
     height: auto;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  @media (min-width: 640px) {
+    input,
+    select,
+    textarea {
+      font-size: 0.875rem;
+    }
   }
 
   :focus-visible {
@@ -97,7 +120,7 @@
   }
 
   .section-pad {
-    @apply py-12 sm:py-20 lg:py-24;
+    @apply py-11 sm:py-20 lg:py-24;
   }
 
   .eyebrow {
@@ -105,7 +128,7 @@
   }
 
   .section-title {
-    @apply mt-3 max-w-3xl text-[1.75rem] leading-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15];
+    @apply mt-3 max-w-3xl text-[1.65rem] leading-[1.15] text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15];
   }
 
   .section-lead {
@@ -162,7 +185,7 @@
   }
 
   .gallery-tile {
-    @apply relative block h-full min-h-[180px] w-full overflow-hidden rounded-xl bg-graphite sm:min-h-[220px];
+    @apply relative block h-full min-h-[168px] w-full overflow-hidden rounded-xl bg-graphite sm:min-h-[220px];
   }
 
   .gallery-tile img {
@@ -196,7 +219,7 @@
   }
 
   .field-input {
-    @apply w-full rounded-lg border border-white/15 bg-ink px-3.5 py-3 text-sm text-cream placeholder:text-mist/50 transition focus:border-gold focus:outline-none;
+    @apply w-full rounded-lg border border-white/15 bg-ink px-3.5 py-3.5 text-base text-cream placeholder:text-mist/50 transition focus:border-gold focus:outline-none sm:py-3 sm:text-sm;
   }
 }
 

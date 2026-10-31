@@ -38,7 +38,7 @@ export function FAQ() {
                   <button
                     id={buttonId}
                     type="button"
-                    className="faq-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                    className="faq-trigger flex min-h-14 w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
                     aria-expanded={expanded}
                     aria-controls={panelId}
                     onClick={() =>
@@ -61,7 +61,7 @@ export function FAQ() {
                   role="region"
                   aria-labelledby={buttonId}
                   hidden={!expanded}
-                  className="border-t border-white/10 px-5 pb-5 pt-3"
+                  className="border-t border-white/10 px-4 pb-5 pt-3 sm:px-5"
                 >
                   <p className="text-sm leading-relaxed text-mist sm:text-base">
                     {item.answer}

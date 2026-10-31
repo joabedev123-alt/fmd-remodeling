@@ -16,7 +16,11 @@ export function BrandMark({ className = '', compact = false }: BrandMarkProps) {
         alt={brandMedia.logo.alt}
         width={brandMedia.logo.width}
         height={brandMedia.logo.height}
-        className={`h-auto max-h-12 w-auto object-contain object-left sm:max-h-14 ${compact ? 'max-h-10' : ''} ${className}`}
+        className={`w-auto object-contain object-left ${
+          compact
+            ? 'h-12 max-h-12 sm:h-14 sm:max-h-14'
+            : 'h-14 max-h-14 sm:h-16 sm:max-h-16'
+        } ${className}`}
         decoding="async"
       />
     )

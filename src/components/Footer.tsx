@@ -10,7 +10,7 @@ export function Footer() {
 
   return (
     <footer className="bg-ink text-mist">
-      <div className="site-container grid gap-10 border-b border-white/10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="site-container grid gap-9 border-b border-white/10 py-12 sm:grid-cols-2 sm:gap-10 sm:py-14 lg:grid-cols-4">
         <div>
           <BrandMark />
           <p className="mt-4 max-w-xs text-sm leading-relaxed">
@@ -108,7 +108,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="site-container flex flex-col gap-4 py-6 pb-8 text-sm sm:flex-row sm:items-center sm:justify-between sm:pb-6">
+      <div className="site-container flex flex-col gap-4 py-6 pb-10 text-sm sm:flex-row sm:items-center sm:justify-between sm:pb-6">
         <p>
           © {year} {siteConfig.companyName}. All rights reserved.
         </p>
